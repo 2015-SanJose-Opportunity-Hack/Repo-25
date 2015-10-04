@@ -1,5 +1,6 @@
 class CurriculumsController < ApplicationController
   before_action :set_curriculum, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # Upload the file
   def curriculum_upload

@@ -1,10 +1,11 @@
 class AvailableSchedulesController < ApplicationController
   before_action :set_available_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /available_schedules
   # GET /available_schedules.json
   def index
-    @available_schedules = AvailableSchedule.all
+    @available_schedules = AvailableSchedule.where(program_leader_id: current_user.id).all
   end
 
   # GET /available_schedules/1

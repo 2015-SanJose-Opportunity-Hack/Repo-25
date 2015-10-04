@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if current_user.admin?
       users_path
     elsif current_user.program_leader?
-      curriculums_path
+      available_schedules_path
     else current_user.program_organizer?
       schedules_path
     end

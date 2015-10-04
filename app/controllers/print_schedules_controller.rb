@@ -1,5 +1,6 @@
 class PrintSchedulesController < ApplicationController
   before_action :set_print_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /print_schedules
   # GET /print_schedules.json
