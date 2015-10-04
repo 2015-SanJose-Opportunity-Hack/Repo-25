@@ -26,6 +26,7 @@ class AvailableSchedulesController < ApplicationController
   # POST /available_schedules.json
   def create
     @available_schedule = AvailableSchedule.new(available_schedule_params)
+    @available_schedule.program_leader_id = current_user.id
 
     respond_to do |format|
       if @available_schedule.save
@@ -70,6 +71,6 @@ class AvailableSchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def available_schedule_params
-      params[:available_schedule]
+      params.require(:available_schedule).permit(:site_id, :program_leader_id, :start_date, :end_date)
     end
 end

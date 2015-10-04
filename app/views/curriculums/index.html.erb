@@ -37,6 +37,7 @@
     </div>
   </div>
   <!--login modal-->
+  <div style="margin:0 0 0 10%; padding:0 0 0 0">
   <form role="form" action="curriculum/upload" method="POST" enctype="multipart/form-data">
     Curriculum Duration: <input type="text" name="duration" id="Duration"><br><br>
     <input type="hidden" name="<%=request_forgery_protection_token.to_s %>" value=<%=form_authenticity_token%> >
@@ -46,32 +47,29 @@
                 <button type="submit" name="Upload" >Upload</button>
               </div>
             </div><!-- /.box-body -->
-          </form>
+  </form>
   </div>
+  <div>
     <div class="ui container">
-      <table class="ui celled table">
+      <table class="ui celled table " style="width:1000px;margin:1px 10% 0px 10%">
         <thead>
         <tr><th>Name</th>
           <th>Start Date</th>
           <th>End Date</th>
           <th></th>
-          <th></th>
-          <th></th>
         </tr></thead>
     <tbody>
     <% @curriculums.each do |curriculum| %>
         <tr>
-          <td><%= curriculum.name %></td>
+          <td><%= link_to curriculum.name.humanize, curriculum.name %></td>
           <td><%= curriculum.file_url %></td>
           <td><%= curriculum.duration %></td>
-          <td><%= link_to 'Show', curriculum %></td>
           <td><%= link_to 'Edit', edit_curriculum_path(curriculum) %></td>
-          <td><%= link_to 'Destroy', curriculum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
       </tbody>
       <tfoot>
-      <tr><th colspan="3">
+      <tr><th colspan="4">
         <div class="ui right floated pagination menu">
           <a class="icon item">
             <i class="left chevron icon"></i>

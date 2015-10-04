@@ -12,7 +12,6 @@
 
   <tbody>
     <div class="text-center">
-  
 
 
   <%= form_for :available_schedule, url: '/available_schedules' do |f| %>
@@ -23,7 +22,7 @@
     End Date   : <%= f.date_select(:end_date,:start_year => 1950) %><br />
 
 
-    <%= f.submit %>
+    <%= f.submit value: "Submit" %>
   <% end %>
 
 </div>
@@ -35,17 +34,18 @@
           <tr><th>Name</th>
             <th>PL Assigned</th>
             <th>Start Date</th>
-            <th>End Date</th>
           </tr></thead>
           <tbody>
-          <% if @available_schedules.present? %>
+          <!--#% if @available_schedules.present? %-->
             <% @available_schedules.each do |asch| %>  
+                puts asch.inspect
                 <tr>
+                  <td><%= asch.program_leader_id %></td>
                   <td><%= asch.start_date %></td>
                   <td><%= asch.end_date %></td>
                 </tr>
             <% end %>
-          <% end %>
+          <!--#% end %-->
           </tbody>
           <tfoot>
           <tr><th colspan="4">
