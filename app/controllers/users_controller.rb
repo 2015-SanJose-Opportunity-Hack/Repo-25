@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     end
     render json: {data: data}
   end
-
+private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:schedule).permit(:site_id, :user_id, :start_date, :curriculum_id)
+    end
 
 end
