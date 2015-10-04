@@ -6,7 +6,7 @@ class CurriculumsController < ApplicationController
   def curriculum_upload
     duration = params['text']
     name =  params['file'].original_filename
-    directory = "/Users/dhara/Github/CurriculumDB"
+    directory = "./"
     # create the file path
     path = File.join(directory, name)
     # write the file
