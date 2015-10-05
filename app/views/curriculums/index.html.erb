@@ -41,7 +41,7 @@
   <form role="form" action="curriculum/upload" method="POST" enctype="multipart/form-data">
     Curriculum Duration: <input type="text" name="duration" id="Duration"><br><br>
     <input type="hidden" name="<%=request_forgery_protection_token.to_s %>" value=<%=form_authenticity_token%> >
-            <div class="box-body">
+            <div class="box-body" style>
               <div class="form-group">
                 <input type="file" id="exampleInputFile" value="Upload" name="file">
                 <button type="submit" name="Upload" >Upload</button>
@@ -68,7 +68,7 @@
         </tr>
     <% end %>
       </tbody>
-      <tfoot>
+    <!--   <tfoot>
       <tr><th colspan="4">
         <div class="ui right floated pagination menu">
           <a class="icon item">
@@ -83,7 +83,7 @@
           </a>
         </div>
       </th>
-      </tr></tfoot>
+      </tr></tfoot> -->
           <td></td>
 
         </tr>

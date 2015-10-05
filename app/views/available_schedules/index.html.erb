@@ -31,9 +31,10 @@
 <div class="ui container">
         <table class="ui celled table">
           <thead>
-          <tr><th>Name</th>
-            <th>PL Assigned</th>
+          <tr><th>Id</th>
+            <th>Site Id</th>
             <th>Start Date</th>
+            <th>End Date</th>
           </tr></thead>
           <tbody>
           <!--#% if @available_schedules.present? %-->
@@ -41,13 +42,14 @@
                 puts asch.inspect
                 <tr>
                   <td><%= asch.program_leader_id %></td>
-                  <td><%= asch.start_date %></td>
-                  <td><%= asch.end_date %></td>
+                  <td><%= asch.site_id %></td>
+                  <td><%= asch.start_date.strftime("%B %d, %Y") %></td>
+                  <td><%= asch.end_date.strftime("%B %d, %Y") %></td>
                 </tr>
             <% end %>
           <!--#% end %-->
           </tbody>
-          <tfoot>
+          <!-- <tfoot>
           <tr><th colspan="4">
             <div class="ui right floated pagination menu">
               <a class="icon item">
@@ -62,7 +64,7 @@
               </a>
             </div>
           </th>
-          </tr></tfoot>
+          </tr></tfoot> -->
         </table>
       </div>
 <br>
